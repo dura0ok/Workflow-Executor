@@ -20,11 +20,14 @@ void Config::ParseConfig() {
 std::pair<bool, size_t> Config::FindLineWithContent(const std::string& search) {
     std::string line;
     unsigned int curLine = 0;
-    while(getline(this->file, line)) { // I changed this, see below
+    while(getline(this->file, line)) {
+
         curLine++;
         if (line.find(search, 0) != std::string::npos) {
+            ClearProgress();
             return std::make_pair(true, curLine);
         }
+        if(this->file.eof()) break;
     }
 
 
