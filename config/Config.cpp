@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Config.h"
+#include "exceptions/BorderException.h"
 
 Config::Config(const std::string &name) {
     this->name = name;
@@ -8,8 +9,11 @@ Config::Config(const std::string &name) {
 }
 
 void Config::ParseConfig() {
-    auto res = FindLineWithContent("desc");
-    std::cout << res.first << " " << res.second;
+    auto startLine = FindLineWithContent("desc");
+    auto endLine = FindLineWithContent("csed");
+    if(!startLine.first || !endLine.first){
+        throw BorderException();
+    }
 
 }
 
