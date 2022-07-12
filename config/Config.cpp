@@ -5,7 +5,8 @@
 Config::Config(const std::string &name) {
     this->name = name;
     this->file.open(name);
-    this->file.exceptions(std::ifstream::failbit);
+    if(!this->file.is_open()) throw std::runtime_error("Could not open file");
+    //this->file.exceptions(std::ifstream::failbit);
 }
 
 void Config::ParseConfig() {
@@ -36,7 +37,7 @@ std::pair<bool, size_t> Config::FindLineWithContent(const std::string& search) {
 }
 
 void Config::ClearProgress() {
-    file.clear();
+    //file.clear();
     file.seekg(0);
 }
 

@@ -7,7 +7,7 @@ int main(){
         Config config("conf.txt");
         config.ParseConfig();
     }catch (const std::exception &e) {
-        std::cout << "Exception opening/reading file" << " " << e.what();
+        std::cout << e.what();
     }
     return 0;
 }
