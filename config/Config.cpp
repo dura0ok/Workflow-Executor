@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Config.h"
 #include "exceptions/BorderException.h"
-#include "../helpers/RegexHelper.h"
+#include "../helpers/LineHelper.h"
 
 Config::Config(const std::string &name) {
     this->name = name;
@@ -14,15 +14,14 @@ void Config::ParseConfig() {
     auto startLine = FindLineWithContent("desc");
     auto endLine = FindLineWithContent("csed");
 
-    std::cout << startLine.second << " " << endLine.second << std::endl << "Data:" << std::endl;
     if(!startLine.first || !endLine.first){
         throw BorderException();
     }
 
     auto blocks = this->GetRawBlocksInfo(startLine.second + 1, endLine.second);
     for(auto & block : blocks){
-        auto res = RegexHelper::SplitString(block);
-        std::cout << res.size(); // 0 ?
+        auto res = LineHelper::SplitStringByTokens(block);
+        std::cout << res.size();
 
     }
 
