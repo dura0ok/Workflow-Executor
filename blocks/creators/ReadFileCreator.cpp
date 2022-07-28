@@ -4,6 +4,6 @@
 
 #include "ReadFileCreator.h"
 
-Block *ReadFileCreator::FactoryMethod() const {
-    return new ReadFileBlock();
+std::unique_ptr<Block> ReadFileCreator::FactoryMethod(unsigned long id, const std::vector<std::string> &args) {
+    return std::unique_ptr<Block>(new ReadFileBlock);
 }

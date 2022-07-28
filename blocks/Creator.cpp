@@ -9,4 +9,4 @@ std::unique_ptr<Creator> Creator::mapper(const std::string& command_name) {
     creators["readfile"] = std::make_unique<ReadFileCreator>();
 
     return std::move(creators[command_name]);
-};
+}

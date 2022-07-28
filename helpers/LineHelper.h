@@ -9,5 +9,5 @@
 class LineHelper {
 public:
     static std::vector<std::string> SplitStringByTokens(const std::string &s);
-    static std::unique_ptr<Creator> ParseLineToBlock(const std::vector<std::string> &splitLine);
+    static std::unique_ptr<Block> ParseLineToBlock(const std::vector<std::string> &splitLine);
 };

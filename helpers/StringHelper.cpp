@@ -1,7 +1,7 @@
 #include "StringHelper.h"
 
 std::string get_whitespace() {
-    return " \n\r\t\f\v";;
+    return " \n\r\t\f\v";
 }
 
 std::string ltrim(const std::string &s) {
