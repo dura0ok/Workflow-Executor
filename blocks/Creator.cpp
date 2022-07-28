@@ -8,7 +8,7 @@
 #include "creators/ReadFileCreator.h"
 
 Block *Creator::mapper(std::string command_name) {
-    std::map<std::string, std::unique_ptr<Creator>>
+    std::map<std::string, std::unique_ptr<Creator>> creators;
     creators["asd"] = ReadFileCreator();
 
     return nullptr;
