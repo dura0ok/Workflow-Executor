@@ -23,15 +23,16 @@ void Config::ParseConfig() {
     }
 
     auto blocks = this->GetRawBlocksInfo(startLine.second + 1, endLine.second);
+    std::vector<std::unique_ptr<Block>> blockObjects;
     for (auto &block: blocks) {
         auto res = LineHelper::SplitStringByTokens(trim(block));
         std::cout << res.size();
         assert(res.size() >= 3);
         auto t = LineHelper::ParseLineToBlock(res);
-        auto operationRes = t->operation();
-        std::cout << operationRes;
+        blockObjects.push_back(std::move(t));
     }
 
+    std::cout << "asd";
 }
 
 std::pair<bool, size_t> Config::FindLineWithContent(const std::string& search) {
