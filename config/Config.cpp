@@ -4,6 +4,7 @@
 #include "exceptions/BorderException.h"
 #include "../helpers/LineHelper.h"
 #include "../helpers/StringHelper.h"
+#include "../blocks/Creator.h"
 
 
 Config::Config(const std::string &name) {
@@ -26,7 +27,7 @@ void Config::ParseConfig() {
         auto res = LineHelper::SplitStringByTokens(trim(block));
         std::cout << res.size();
         assert(res.size() >= 3);
-        LineHelper::ParseLineToBlock(res);
+        auto t = LineHelper::ParseLineToBlock(res);
 
     }
 

@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Block.h"
+#include <memory>
 
 class Creator {
 public:
@@ -8,5 +9,5 @@ public:
     virtual ~Creator()= default;
     [[nodiscard]] virtual Block* FactoryMethod() const = 0;
 
-    Block* mapper(std::string command_name);
+    static std::unique_ptr<Creator> mapper(const std::string& command_name);
 };

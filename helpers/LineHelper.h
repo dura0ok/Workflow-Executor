@@ -2,11 +2,12 @@
 #include <vector>
 #include <string>
 #include "../blocks/Block.h"
+#include "../blocks/Creator.h"
+#include <memory>
 
 
 class LineHelper {
 public:
     static std::vector<std::string> SplitStringByTokens(const std::string &s);
-
-    static Block *ParseLineToBlock(const std::vector<std::string> &splitLine);
+    static std::unique_ptr<Creator> ParseLineToBlock(const std::vector<std::string> &splitLine);
 };

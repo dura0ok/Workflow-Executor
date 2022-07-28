@@ -3,8 +3,10 @@
 //
 
 #include "LineHelper.h"
+#include "../blocks/Creator.h"
 #include <regex>
 #include <iostream>
+
 
 std::vector<std::string> LineHelper::SplitStringByTokens(const std::string& s) {
     std::vector<std::string> elems;
@@ -20,9 +22,9 @@ std::vector<std::string> LineHelper::SplitStringByTokens(const std::string& s) {
     return elems;
 }
 
-Block *LineHelper::ParseLineToBlock(const std::vector<std::string> &splitLine) {
+std::unique_ptr<Creator> LineHelper::ParseLineToBlock(const std::vector<std::string> &splitLine) {
     int id = std::stoi(splitLine[0]);
     const std::string &command = splitLine[2];
     const std::string &args = splitLine[3];
-    //return new Block(id, command, args);
+    return std::make_unique<Block*>(Creator::mapper(command)->FactoryMethod());
 }
