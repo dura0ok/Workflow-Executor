@@ -9,7 +9,9 @@ public:
 
     Block(size_t id, const std::vector<std::string> &args);
 
-    size_t id;
+    Block();
+
+    size_t id{};
     std::vector<std::string> args;
 
 

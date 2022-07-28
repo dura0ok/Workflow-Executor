@@ -5,6 +5,7 @@
 
 class ReadFileCreator : Creator{
 public:
+    ReadFileCreator() :Creator(){};
     [[nodiscard]] Block* FactoryMethod() const override;
 };
 

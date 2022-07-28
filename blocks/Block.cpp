@@ -6,3 +6,5 @@ Block::Block(unsigned long id, const std::vector <std::string> &args) : id(id), 
     this->id = id;
     this->args = args;
 }
+
+Block::Block() = default;
