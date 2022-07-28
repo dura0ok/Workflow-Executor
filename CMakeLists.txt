@@ -3,4 +3,4 @@ project(learn)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(learn main.cpp config/Config.cpp exceptions/BorderException.h helpers/LineHelper.cpp helpers/LineHelper.h blocks/Block.cpp blocks/Block.h helpers/StringHelper.cpp helpers/StringHelper.h blocks/concrete_blocks/ReadFileBlock.cpp blocks/concrete_blocks/ReadFileBlock.h blocks/Creator.cpp blocks/Creator.h blocks/creators/ReadFileCreator.cpp blocks/creators/ReadFileCreator.h exceptions/FileNotFoundException.cpp exceptions/FileNotFoundException.h)
+add_executable(learn main.cpp config/Config.cpp helpers/LineHelper.cpp blocks/Block.cpp helpers/StringHelper.cpp blocks/concrete_blocks/ReadFileBlock.cpp  blocks/Creator.cpp  blocks/creators/ReadFileCreator.cpp exceptions/FileNotFoundException.cpp blocks/concrete_blocks/ReplaceBlock.cpp blocks/concrete_blocks/ReplaceBlock.h blocks/creators/ReplaceBlockCreator.cpp blocks/creators/ReplaceBlockCreator.h)

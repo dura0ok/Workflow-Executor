@@ -28,7 +28,8 @@ void Config::ParseConfig() {
         std::cout << res.size();
         assert(res.size() >= 3);
         auto t = LineHelper::ParseLineToBlock(res);
-        t->operation();
+        auto operationRes = t->operation();
+        std::cout << operationRes;
     }
 
 }
