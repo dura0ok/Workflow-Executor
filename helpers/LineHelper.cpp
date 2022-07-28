@@ -11,11 +11,18 @@ std::vector<std::string> LineHelper::SplitStringByTokens(const std::string& s) {
     std::regex re(R"(^(\d+)\s*([-+=*\/])\s*(\S+)\s+(.+)$)");
     std::cmatch result;
 
-    if(std::regex_match(s.c_str(), result, re)){
+    if (std::regex_match(s.c_str(), result, re)) {
         for (int i = 1; i < result.size(); i++) {
             elems.push_back(result[i]);
         }
     }
 
     return elems;
+}
+
+Block *LineHelper::ParseLineToBlock(const std::vector<std::string> &splitLine) {
+    int id = std::stoi(splitLine[0]);
+    const std::string &command = splitLine[2];
+    const std::string &args = splitLine[3];
+    //return new Block(id, command, args);
 }

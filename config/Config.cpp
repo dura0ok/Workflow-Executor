@@ -1,12 +1,15 @@
 #include <iostream>
+#include <cassert>
 #include "Config.h"
 #include "exceptions/BorderException.h"
 #include "../helpers/LineHelper.h"
+#include "../helpers/StringHelper.h"
+
 
 Config::Config(const std::string &name) {
     this->name = name;
     this->file.open(name);
-    if(!this->file.is_open()) throw std::runtime_error("Could not open file");
+    if (!this->file.is_open()) throw std::runtime_error("Could not open file");
     //this->file.exceptions(std::ifstream::failbit);
 }
 
@@ -14,14 +17,16 @@ void Config::ParseConfig() {
     auto startLine = FindLineWithContent("desc");
     auto endLine = FindLineWithContent("csed");
 
-    if(!startLine.first || !endLine.first){
+    if (!startLine.first || !endLine.first) {
         throw BorderException();
     }
 
     auto blocks = this->GetRawBlocksInfo(startLine.second + 1, endLine.second);
-    for(auto & block : blocks){
-        auto res = LineHelper::SplitStringByTokens(block);
+    for (auto &block: blocks) {
+        auto res = LineHelper::SplitStringByTokens(trim(block));
         std::cout << res.size();
+        assert(res.size() >= 3);
+        LineHelper::ParseLineToBlock(res);
 
     }
 
