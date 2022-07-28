@@ -5,14 +5,17 @@
 #include <fstream>
 #include <sstream>
 #include "ReadFileBlock.h"
+#include "../../exceptions/FileNotFoundException.h"
+
 
 std::string ReadFileBlock::operation() {
     std::ifstream inFile;
     inFile.open(this->args[0]); //open the input file
+    if(inFile.fail())  throw FileNotFoundException(this->args[0]);
 
     std::stringstream strStream;
     strStream << inFile.rdbuf(); //read the file
     std::string str = strStream.str(); //str holds the content of the file
 
     return str;
-} 
+}

@@ -47,7 +47,5 @@ std::unique_ptr<Block> LineHelper::ParseLineToBlock(const std::vector<std::strin
     std::vector<std::string> argsVector;
     SplitStringToVector(args, argsVector);
 
-    auto t = Creator::mapper(command)->FactoryMethod(id, argsVector);
-
-    return nullptr;
+    return Creator::mapper(command)->FactoryMethod(id, argsVector);
 }

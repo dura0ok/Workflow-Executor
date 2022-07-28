@@ -5,5 +5,5 @@
 #include "ReadFileCreator.h"
 
 std::unique_ptr<Block> ReadFileCreator::FactoryMethod(unsigned long id, const std::vector<std::string> &args) {
-    return std::unique_ptr<Block>(ReadFileBlock(id, args));
+    return std::make_unique<ReadFileBlock>(id, args);
 }

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cassert>
 #include "Config.h"
-#include "exceptions/BorderException.h"
+#include "../exceptions/BorderException.h"
 #include "../helpers/LineHelper.h"
 #include "../helpers/StringHelper.h"
 #include "../blocks/Creator.h"
@@ -28,7 +28,7 @@ void Config::ParseConfig() {
         std::cout << res.size();
         assert(res.size() >= 3);
         auto t = LineHelper::ParseLineToBlock(res);
-        std::cout << t->operation();
+        t->operation();
     }
 
 }
