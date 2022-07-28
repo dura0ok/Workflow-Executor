@@ -4,5 +4,5 @@
 class ReadFileBlock : public Block {
 public:
     [[nodiscard]] std::string operation() override;
-    ReadFileBlock() :Block(){};
+    ReadFileBlock(unsigned long id, const std::vector <std::string> &args) :Block(id, args){};
 };

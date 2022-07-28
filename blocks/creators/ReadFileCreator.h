@@ -6,7 +6,7 @@
 class ReadFileCreator : public Creator{
 public:
     ReadFileCreator() :Creator(){};
-    [[nodiscard]] std::unique_ptr<Block> FactoryMethod(unsigned long id, const std::vector <std::string> &args);
+    [[nodiscard]] std::unique_ptr<Block> FactoryMethod(unsigned long id, const std::vector <std::string> &args) override;
 };
 
 
