@@ -11,12 +11,12 @@ public:
 
     Block();
 
-    size_t id{};
+    [[maybe_unused]] size_t id{};
     std::vector<std::string> args;
 
 
     virtual ~Block() = default;
 
-    [[nodiscard]] virtual std::string operation() = 0;
+    [[nodiscard]] virtual std::string operation(std::string last_result) = 0;
 };
 

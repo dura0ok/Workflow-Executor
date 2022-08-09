@@ -8,9 +8,9 @@
 #include <iostream>
 
 
-std::vector<std::string> LineHelper::SplitStringByTokens(const std::string& s) {
+std::vector<std::string> LineHelper::SplitStringByTokens(const std::string &s, const std::regex &re) {
     std::vector<std::string> elems;
-    std::regex re(R"(^(\d+)\s*([-+=*\/])\s*(\S+)\s+(.+)$)");
+
     std::cmatch result;
 
     if (std::regex_match(s.c_str(), result, re)) {
@@ -22,16 +22,26 @@ std::vector<std::string> LineHelper::SplitStringByTokens(const std::string& s) {
     return elems;
 }
 
-void SplitStringToVector(std::string s, std::vector<std::string> &v){
+std::vector<std::string> LineHelper::SplitStringBySubMatches(const std::string &s, const std::regex &re) {
+    std::vector<std::string> elems;
+    std::smatch result;
+    auto start = s.cbegin();
+    while (std::regex_search(start, s.cend(), result, re)) {
+        elems.push_back(result[0]);
+        start = result.suffix().first;
+    }
+    return elems;
+}
 
-    std::string temp = "";
-    for(char i : s){
+void SplitStringToVector(const std::string &s, std::vector<std::string> &v) {
 
-        if(i==' '){
+    std::string temp;
+    for (char i: s) {
+
+        if (i == ' ') {
             v.push_back(temp);
             temp = "";
-        }
-        else{
+        } else {
             temp.push_back(i);
         }
 

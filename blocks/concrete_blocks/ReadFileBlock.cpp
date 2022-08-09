@@ -8,10 +8,10 @@
 #include "../../exceptions/FileNotFoundException.h"
 
 
-std::string ReadFileBlock::operation() {
+std::string ReadFileBlock::operation(std::string last_result) {
     std::ifstream inFile;
     inFile.open(this->args[0]); //open the input file
-    if(inFile.fail())  throw FileNotFoundException(this->args[0]);
+    if (inFile.fail()) throw FileNotFoundException(this->args[0]);
 
     std::stringstream strStream;
     strStream << inFile.rdbuf(); //read the file

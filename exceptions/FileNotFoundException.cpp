@@ -1,13 +1,9 @@
 #include "FileNotFoundException.h"
-#include <utility>
 
-FileNotFoundException::FileNotFoundException(std::string fileName) {
-    this->fileName = std::move(fileName);
+FileNotFoundException::FileNotFoundException(const std::string &fileName) {
+    this->errorText = std::string("File not found: ") + fileName;
 }
 
 const char *FileNotFoundException::what() const noexcept {
-    std::string msg =  std::string("File not found: ") + this->fileName;
-    char *messageData= new char[msg.length() + 1];
-    strcpy(messageData, msg.c_str());
-    return messageData;
+    return this->errorText.c_str();
 }

@@ -2,13 +2,13 @@
 #include <iostream>
 #include <cstring>
 
-class FileNotFoundException : public std::exception{
+class FileNotFoundException : public std::exception {
 public:
-    std::string fileName;
+    std::string errorText;
 
-    explicit FileNotFoundException(std::string fileName);
+    explicit FileNotFoundException(const std::string &fileName);
 
-    [[nodiscard]] const char * what() const noexcept override;
+    [[nodiscard]] const char *what() const noexcept override;
 };
 
 
