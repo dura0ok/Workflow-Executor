@@ -11,7 +11,7 @@ public:
 
     Block();
 
-    [[maybe_unused]] size_t id{};
+    size_t id{};
     std::vector<std::string> args;
 
 
