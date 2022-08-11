@@ -4,6 +4,7 @@
 
 #include "LineHelper.h"
 #include "../blocks/Creator.h"
+#include "StringHelper.h"
 #include <regex>
 #include <iostream>
 
@@ -39,7 +40,7 @@ void SplitStringToVector(const std::string &s, std::vector<std::string> &v) {
     for (char i: s) {
 
         if (i == ' ') {
-            v.push_back(temp);
+            v.push_back(trim(temp));
             temp = "";
         } else {
             temp.push_back(i);
