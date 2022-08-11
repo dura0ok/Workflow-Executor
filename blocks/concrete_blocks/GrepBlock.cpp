@@ -1,7 +1,3 @@
-//
-// Created by stepan7 on 11.08.22.
-//
-
 #include <sstream>
 #include <iostream>
 #include "GrepBlock.h"
